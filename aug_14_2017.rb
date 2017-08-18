@@ -9,3 +9,12 @@ venues = [
 { address: "10 Spruce Avenue Ouest", city: "Montreal", wheelchair_accessible: false, capacity: 525 }
 
 ]
+
+venues_meet_criteria = []
+venues.map do |criteria|
+  if criteria[:wheelchair_accessible] == true && criteria[:capacity] >= 150
+    venues_meet_criteria << criteria
+  end
+end
+
+p venues_meet_criteria.inspect
