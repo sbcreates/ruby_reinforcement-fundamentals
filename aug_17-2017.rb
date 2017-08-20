@@ -36,4 +36,16 @@ sum_of_even_nums(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 #Pick three names and store them in an array.
 #Prompt user to enter their name. If their name is one of the names in the array, display a greeting message that includes their name. If their name isn't in the list, display "Who goes there?"
 
-random_names_list = [Kathy, Don, Mallory, Stanton, Danny, Blaise, Paulo, Barbara, Penelope]
+random_names_list = ["Kathy", "Don", "Mallory", "Stanton", "Danny", "Blaise", "Paulo", "Barbara", "Penelope"]
+
+
+p "What is your first name?"
+user_first_name = gets.chomp.to_s
+random_names_list.each do |name|
+  if name == user_first_name
+    p "Hi #{name}!"
+    break
+  else
+    p "Who goes there?"
+  end
+end
