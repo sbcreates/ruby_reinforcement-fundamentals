@@ -1,0 +1,27 @@
+# EXERCISE 2 - Create a TodoList class with a tasks array (which will contain instances of the Task class). Create an initialize method and an add_task method that allows you to pass in an instance of your Task class. Try creating a todo list and adding your three tasks to it.
+
+require_relative('./aug_21_2017.rb')
+
+class TodoList
+
+  def initialize
+    @tasks = []
+  end
+
+  def add_task(description, due_date)
+    @tasks << Task.new(description, due_date)
+  end
+
+  def task_list
+    @tasks
+  end
+
+end
+
+TodoList.new
+
+add_task("Clean kitchen", "Aug 25, 2017")
+add_task("Help make chicken", "Aug 31, 2017")
+add_task("Make bed", "Aug 21, 2017")
+
+puts task_list.inspect
