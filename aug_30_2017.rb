@@ -1,17 +1,21 @@
 def select_cards(possible_cards, hand)
 
-  possible_cards.each do |current_card|
-    print "Do you want to pick up #{current_card}?"
-    answer = gets.chomp
+  #loops through the iteration below until the hand array has 3 cards.
+  while hand.count < 3
 
-    if answer.downcase == 'y'
-      hand << current_card
-    end
-    # return hand <-- moved this from inside the loop to outside of the loop. After the first loop it stops and returns the hand because of the return value. Return breaks the loop and returns only the first choice. Return needs to be outside of the loop so that the 'hand' array can gather all of your choices in the loop and then can return the value.
+    possible_cards.each do |current_card|
+      print "Do you want to pick up #{current_card}?"
+      answer = gets.chomp
 
-    #breaks the loop once three cards have been picked by the user
-    if hand.count >= 3
-      break
+      if answer.downcase == 'y'
+        hand << current_card
+      end
+      # return hand <-- moved this from inside the loop to outside of the loop. After the first loop it stops and returns the hand because of the return value. Return breaks the loop and returns only the first choice. Return needs to be outside of the loop so that the 'hand' array can gather all of your choices in the loop and then can return the value.
+
+      #breaks the loop once three cards have been picked by the user
+      if hand.count >= 3
+        break
+      end
     end
   end
 
