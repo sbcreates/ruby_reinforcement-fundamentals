@@ -1,4 +1,4 @@
-hash = {
+articles = {
   response: {
 
     status: "ok",
@@ -116,17 +116,36 @@ hash = {
 #1. Add another key-value pair to each article where the key is "views" and the value is 0.
 
 # to add a key to a hash within an array, i need to iterate through each element in the array.
-hash[:response][:results].map do |value|
-  value[:views] = 0
+articles[:response][:results].each do |article|
+  article[:views] = 0
 end
 
-puts hash[:response][:results]
+
+# puts hash[:response][:results]
 # each hash within the array now contains views => 0
 
 
 #2. Write a method called read_article that randomly selects an article and increases the articles "views" by one each time it's randomly selected.
 
-def read_article
-
-
+def read_article(article_view)
+  random_article = article_view[:response][:results].sample
+  random_article[:views] += 1
+  # article_view[:response][:results].sample do |article|
+  #   article[:views] += 1
+  # end
 end
+
+100.times do
+  read_article(articles)
+end
+
+
+#3 Write a method called display_views that iterates through the articles and displays their titles and view counts, like so:
+# Try calling read_article several times and then display_views to verify that your code works.
+def display_views(article_views)
+  article_views[:response][:results].each do |article|
+    puts "#{article[:webTitle]} has #{article[:views]} views."
+  end
+end
+
+display_views(articles)
